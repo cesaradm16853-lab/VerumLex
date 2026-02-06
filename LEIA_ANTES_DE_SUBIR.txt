@@ -1,0 +1,39 @@
+INSTRUÇÕES DE UPLOAD (GITHUB)
+
+Para colocar seu site no ar e ativar o sistema de atualizações, siga estes passos:
+
+OPÇÃO 1: GITHUB DESKTOP (Recomendado - Mais Fácil)
+1. Baixe e instale: https://desktop.github.com/
+2. Abra o GitHub Desktop e faça login na sua conta.
+3. Vá em "File" > "Add Local Repository".
+4. Selecione esta pasta: C:\Users\ODC_CS\Documents\trae_projects\VerumLex_Site
+5. Ele vai perguntar se quer criar um repositório. Clique em "Create a Repository".
+6. Clique em "Publish repository" (botão azul no topo).
+7. Nome: VerumLex_Site (desmarque "Keep this code private" se quiser usar o GitHub Pages de graça).
+8. Clique em "Publish Repository".
+
+OPÇÃO 2: GIT MANUAL (Se você já instalou o Git)
+1. Abra o arquivo "SUBIR_PARA_GITHUB.bat" nesta pasta.
+2. Siga as instruções na tela.
+
+---
+APÓS O UPLOAD (CONFIGURAR O SITE):
+1. Vá para a página do seu repositório no GitHub (ex: github.com/SEU_USUARIO/VerumLex_Site).
+2. Clique em "Settings" (topo direito).
+3. No menu lateral esquerdo, clique em "Pages".
+4. Em "Build and deployment" > "Source", escolha "Deploy from a branch".
+5. Em "Branch", selecione "main" e "/ (root)".
+6. Clique em "Save".
+
+CONFIGURAR DOMÍNIO (verumlex.com.br):
+(Recomendamos usar verumlex.com.br como o principal por ser mais curto)
+
+1. Ainda na página "Pages", em "Custom domain", digite: verumlex.com.br
+2. Clique em "Save".
+3. O GitHub vai te dar os dados de DNS para configurar no Registro.br.
+   - Normalmente são 4 IPs (Tipo A) e 1 CNAME (Tipo CNAME).
+   - Use o passo a passo que passei no chat.
+
+E O OUTRO DOMÍNIO? (verumlexpericias.com.br)
+No Registro.br, você pode configurar o "verumlexpericias.com.br" para redirecionar para "verumlex.com.br".
+(Isso se chama Redirecionamento de URL, mas o Registro.br tem limitações para isso nativamente. O ideal é focar no verumlex.com.br primeiro).
