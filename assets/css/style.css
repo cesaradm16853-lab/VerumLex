@@ -102,7 +102,7 @@ h1, h2, h3 {
 
 /* Hero */
 .hero {
-    height: 80vh;
+    padding: 6rem 0 4rem 0; /* Reduced top/bottom padding instead of fixed height */
     display: flex;
     align-items: center;
     justify-content: center;
