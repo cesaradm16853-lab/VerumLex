@@ -192,19 +192,25 @@
                     }
                   </style>
                 
-                  <!-- Símbolo -->
+                  <!-- Símbolo Assimétrico -->
                   <g transform="translate(80,50)">
-                    <!-- 1. Fundo Sólido (Base Ouro) -->
-                    <polygon fill="#d4af37" points="150,0 300,150 150,300 0,150"></polygon>
+                    <!-- LADO ESQUERDO: Linhas Finas (Detalhado) -->
+                    <!-- 1. Faixa Externa Esquerda -->
+                    <path fill="#d4af37" d="M 150 0 L 0 150 L 150 300 L 150 275 L 25 150 L 150 25 Z" />
                     
-                    <!-- 2. Corte 1 (Linha Preta para criar o vão) -->
-                    <polygon fill="none" stroke="#000" stroke-width="20" points="150,40 260,150 150,260 40,150"></polygon>
+                    <!-- 2. Faixa Média Esquerda -->
+                    <path fill="#d4af37" d="M 150 35 L 35 150 L 150 265 L 150 240 L 60 150 L 150 60 Z" />
                     
-                    <!-- 3. Corte 2 (Linha Preta para criar o vão) -->
-                    <polygon fill="none" stroke="#000" stroke-width="20" points="150,80 220,150 150,220 80,150"></polygon>
-                    
-                    <!-- 4. Miolo (Sólido Ouro - Mantendo o original) -->
-                    <polygon fill="#d4af37" points="150,120 180,150 150,180 120,150"></polygon>
+                    <!-- 3. Faixa Interna Esquerda -->
+                    <path fill="#d4af37" d="M 150 70 L 70 150 L 150 230 L 150 210 L 90 150 L 150 90 Z" />
+
+                    <!-- LADO DIREITO: Bloco Sólido (Minimalista) -->
+                    <!-- 4. Bloco Externo Direito (Funde as faixas externa e média) -->
+                    <path fill="#d4af37" d="M 150 0 L 300 150 L 150 300 L 150 240 L 240 150 L 150 60 Z" />
+
+                    <!-- MIOLO (Comum) -->
+                    <!-- 5. Diamante Central -->
+                    <path fill="#d4af37" d="M 150 100 L 200 150 L 150 200 L 100 150 Z" />
                   </g>
                 
                   <!-- Nome -->
