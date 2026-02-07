@@ -3,11 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VerumLex - Inteligência em Cálculos Periciais</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>VerumLex - Perícia e Assessoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Ícone (Placeholder) -->
+    <!-- Ícone -->
     <link rel="icon" href="favicon.ico">
+    <style>
+        /* Ajustes inline rápidos para a nova estrutura (depois movemos para o CSS) */
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            margin-left: 10px;
+        }
+        .btn-secondary:hover {
+            background-color: #d4af37;
+            color: #000;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+        .service-card h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+        .differentials {
+            background-color: #0a0a0a;
+            padding: 5rem 0;
+        }
+        .differential-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .differential-item {
+            text-align: center;
+        }
+        .differential-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .software-section {
+            background-color: #111;
+            border-top: 1px solid #222;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,8 +72,9 @@
         <div class="container">
             <div class="logo">VerumLex</div>
             <nav class="nav">
-                <a href="#features">Recursos</a>
-                <a href="#download">Download</a>
+                <a href="#services">Áreas de Atuação</a>
+                <a href="#differentials">Diferenciais</a>
+                <a href="#software">Software</a>
                 <a href="#contact">Contato</a>
             </nav>
         </div>
@@ -26,43 +83,88 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title">VerumLex</h1>
-            <p class="hero-subtitle">Precisão e Agilidade na Extração de Dados Jurídicos</p>
-            <p class="hero-text">Automatize a leitura de processos PDF e gere cálculos periciais com a confiabilidade que seu laudo exige.</p>
-            <a href="#download" class="btn btn-primary">Baixar Versão de Avaliação</a>
+            <h1 class="hero-title">Ciência aplicada à verdade dos fatos</h1>
+            <p class="hero-subtitle">Precisão técnica para decisões seguras.</p>
+            <p class="hero-text" style="max-width: 800px; margin: 0 auto 2rem auto;">
+                Transformamos dados, contratos e registros financeiros em números claros, confiáveis e juridicamente sustentáveis. 
+                Atuamos com rigor técnico para garantir que cada valor reflita a realidade dos fatos — no processo, na negociação ou na prevenção de riscos.
+            </p>
+            <div class="hero-buttons">
+                <a href="mailto:contato@verumlex.com.br?subject=Solicitação de Análise de Caso" class="btn btn-primary">Solicitar Análise de Caso</a>
+                <a href="#contact" class="btn btn-secondary">Falar com um Perito</a>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Services Section -->
+    <section id="services" class="features">
         <div class="container">
-            <h2 class="section-title">Por que escolher o VerumLex?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🚀 Extração Automática</h3>
-                    <p>Leia milhares de páginas de PDFs processuais em segundos e extraia apenas os dados relevantes.</p>
+            <h2 class="section-title">Áreas de Atuação</h2>
+            <div class="services-grid">
+                <!-- Trabalhista -->
+                <div class="service-card">
+                    <h3>⚖️ Trabalhista</h3>
+                    <p>Apuração minuciosa de horas extras, adicionais, verbas rescisórias, FGTS e reflexos legais. Cálculos de liquidação e contingenciamento com foco na Súmula 347 e critérios atuais do TST.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>⚖️ Multi-Natureza</h3>
-                    <p>Otimizado para cálculos Trabalhistas, Cíveis, Bancários e de Superendividamento.</p>
+                <!-- Bancário/Civil -->
+                <div class="service-card">
+                    <h3>🏛️ Bancário, Civil e Consumidor</h3>
+                    <p>Revisão de contratos, identificação de anatocismo e juros abusivos, repetição de indébito e recálculos financeiros para indenizações e danos materiais.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🔒 Segurança Total</h3>
-                    <p>Seus dados processados localmente. Sistema licenciado e protegido contra uso não autorizado.</p>
+                <!-- Judicial -->
+                <div class="service-card">
+                    <h3>🌐 Judicial e Extrajudicial</h3>
+                    <p>Atuação como Assistente Técnico: Laudos para petições iniciais, impugnações a cálculos periciais, liquidação de sentença e suporte técnico em acordos e mediações.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="download">
+    <!-- Differentials Section -->
+    <section id="differentials" class="differentials">
         <div class="container">
-            <h2 class="section-title">Comece Agora</h2>
-            <p>Faça o download da versão mais recente (v2.05) e teste gratuitamente por 15 dias.</p>
+            <h2 class="section-title">Por que escolher nossa consultoria?</h2>
+            <p style="text-align: center; color: #aaa; max-width: 700px; margin: 0 auto;">
+                "Ciência aplicada à verdade dos fatos" não é apenas um slogan — é o nosso compromisso com a integridade do número.
+            </p>
+            <div class="differential-grid">
+                <div class="differential-item">
+                    <span class="differential-icon">🔗</span>
+                    <h3>Multidisciplinaridade</h3>
+                    <p style="font-size: 0.9rem; color: #888;">Visão contábil, jurídica e financeira integrada.</p>
+                </div>
+                <div class="differential-item">
+                    <span class="differential-icon">🎯</span>
+                    <h3>Rigor Técnico</h3>
+                    <p style="font-size: 0.9rem; color: #888;">Zero omissões: todos os direitos e deveres contemplados.</p>
+                </div>
+                <div class="differential-item">
+                    <span class="differential-icon">⚡</span>
+                    <h3>Agilidade</h3>
+                    <p style="font-size: 0.9rem; color: #888;">Cumprimento rigoroso de prazos processuais.</p>
+                </div>
+                <div class="differential-item">
+                    <span class="differential-icon">✅</span>
+                    <h3>Confiabilidade</h3>
+                    <p style="font-size: 0.9rem; color: #888;">Laudos claros, fundamentados e auditáveis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section (Antiga Download) -->
+    <section id="software" class="download software-section">
+        <div class="container">
+            <h2 class="section-title">Nossa Tecnologia</h2>
+            <p style="margin-bottom: 2rem;">
+                Desenvolvemos o <strong>VerumLex Software</strong>, uma ferramenta própria para automação e extração de dados jurídicos. 
+                Utilizamos tecnologia de ponta para garantir a precisão em grandes volumes de dados.
+            </p>
             <div class="download-box">
-                <p class="version-info">Versão Atual: 2.05 | Windows 10/11</p>
-                <a href="https://github.com/cesaradm16853-lab/VerumLex/releases/download/v2.05/VerumLex_Setup.exe" class="btn btn-gold">Download Installer (.exe)</a>
-                <p class="requirements">Requisitos: .NET Framework 4.8+, 4GB RAM</p>
+                <p class="version-info">Disponível também para colegas Peritos e Advogados</p>
+                <p class="version-info" style="font-size: 0.9rem; color: #666;">Versão Atual: 2.05 | Windows 10/11</p>
+                <a href="https://github.com/cesaradm16853-lab/VerumLex/releases/download/v2.05/VerumLex_Setup.exe" class="btn btn-gold">Baixar Versão de Avaliação</a>
+                <p class="requirements">Teste gratuito por 15 dias</p>
             </div>
         </div>
     </section>
@@ -70,8 +172,13 @@
     <!-- Footer -->
     <footer id="contact" class="footer">
         <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: #d4af37; margin-bottom: 1rem;">Precisa de um cálculo técnico?</h3>
+                <p>Entre em contato para solicitar uma análise do seu caso.</p>
+                <a href="mailto:contato@verumlex.com.br" style="color: #fff; font-size: 1.2rem; text-decoration: none; font-weight: bold;">contato@verumlex.com.br</a>
+            </div>
+            <hr style="border-color: #333; margin: 2rem 0;">
             <p>&copy; 2026 VerumLex - Perícia e Assessoria. Todos os direitos reservados.</p>
-            <p>contato@verumlex.com.br</p>
         </div>
     </footer>
 
