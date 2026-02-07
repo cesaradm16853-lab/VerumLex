@@ -64,6 +64,108 @@
             border-top: 1px solid #222;
         }
     </style>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Modal Styles -->
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #111;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #d4af37;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+        }
+
+        .close-modal:hover {
+            color: #d4af37;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .form-title {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .form-subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
 
