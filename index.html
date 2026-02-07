@@ -192,7 +192,7 @@
                 Atuamos com rigor técnico para garantir que cada valor reflita a realidade dos fatos — no processo, na negociação ou na prevenção de riscos.
             </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Falar com um Perito</a>
+                <button onclick="openModal()" class="btn btn-primary" style="cursor: pointer; border: none; font-size: 1.1rem;">Falar com um Perito</button>
             </div>
         </div>
     </section>
@@ -281,6 +281,73 @@
             <p>&copy; 2026 VerumLex - Perícia e Assessoria. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 class="form-title">Solicitar Análise</h2>
+            <p class="form-subtitle">Preencha os dados abaixo. Nossa equipe técnica retornará o contato.</p>
+            
+            <form action="https://formsubmit.co/contato@verumlex.com.br" method="POST">
+                <!-- Configurações ocultas do Formsubmit -->
+                <input type="hidden" name="_subject" value="Nova Solicitação de Análise - Site VerumLex">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://verumlex.com.br">
+
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required placeholder="Seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone / WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(XX) 9XXXX-XXXX">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Breve relato do caso</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente sua necessidade..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Solicitação</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('contactModal');
+            modal.style.display = 'flex'; // Garante display flex antes da opacidade
+            // Pequeno delay para permitir a transição CSS
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Impede scroll da página de fundo
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Espera a transição terminar
+            document.body.style.overflow = 'auto'; // Libera scroll
+        }
+
+        // Fechar ao clicar fora
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
