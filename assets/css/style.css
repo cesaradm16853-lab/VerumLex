@@ -169,24 +169,41 @@ h1, h2, h3 {
 }
 
 .download-box {
-    background: #111;
-    padding: 40px;
+    background: #d4af37; /* Inverted: Gold Background */
+    color: #000;         /* Inverted: Black Text */
+    padding: 50px;       /* Adjusted Spacing */
     border-radius: 10px;
     display: inline-block;
     margin-top: 30px;
-    border: 1px solid #d4af37;
+    border: none;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
 }
 
-.version-info {
+.download-box .version-info {
     margin-bottom: 20px;
     font-size: 1.1rem;
-    color: #ccc;
+    color: #222; /* Dark text for contrast */
+    font-weight: 500;
 }
 
-.requirements {
+.download-box .requirements {
     margin-top: 15px;
     font-size: 0.9rem;
-    color: #999;
+    color: #222; /* Dark text for contrast */
+    font-weight: 500;
+}
+
+/* Specific override for button inside inverted box */
+.download-box .btn-gold {
+    background-color: #000;
+    border: 2px solid #000;
+    color: #d4af37;
+}
+
+.download-box .btn-gold:hover {
+    background-color: #222;
+    border-color: #222;
+    color: #fff;
 }
 
 /* Footer */
