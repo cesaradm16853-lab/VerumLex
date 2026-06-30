@@ -1,0 +1,15 @@
+# Temporários e sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Executáveis antigos (não subir no Pages)
+update/VerumLex.exe
