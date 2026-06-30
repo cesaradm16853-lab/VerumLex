@@ -1,4 +1,4 @@
-/* VerumLex — style.css v4.0 | 2026-06-29 */
+/* VerumLex — style.css v4.1 | 2026-06-29 */
 
 /* ════ RESET & VARIABLES ════ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +23,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -71,7 +71,7 @@ img { max-width: 100%; display: block; }
   gap: 8px;
   padding: 14px 32px;
   border-radius: 4px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 600;
   font-size: 0.84rem;
   letter-spacing: 0.08em;
@@ -134,12 +134,9 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 10px;
 }
-.nav-logo img { height: 36px; width: auto; }
+.nav-logo img { height: 44px; width: auto; }
 .nav-logo-text {
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #fff;
+  display: none; /* wordmark já está no SVG em Biennale */
 }
 .nav-links {
   display: flex;
@@ -176,6 +173,13 @@ img { max-width: 100%; display: block; }
 .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ════ TIPOGRAFIA DE MARCA ════ */
+/* Roboto: slogans e taglines */
+.hero-eyebrow,
+.footer-slogan {
+  font-family: 'Roboto', sans-serif;
+}
 
 /* ════ HERO ════ */
 .hero {
@@ -683,7 +687,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border-hi);
   border-radius: 4px;
   color: var(--text);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.88rem;
   outline: none;
   transition: border-color 0.2s;
@@ -715,11 +719,9 @@ img { max-width: 100%; display: block; }
   gap: 10px;
   margin-bottom: 16px;
 }
-.footer-logo img { height: 30px; }
+.footer-logo img { height: 38px; width: auto; }
 .footer-logo-text {
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  display: none; /* wordmark já está no SVG em Biennale */
 }
 .footer-brand-text {
   font-size: 0.82rem;
