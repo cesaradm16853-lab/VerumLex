@@ -1,563 +1,555 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VerumLex — Perícia Judicial Multidisciplinar</title>
-  <meta name="description" content="Assessoria pericial multidisciplinar para advogados e partes. Perícia financeira, bancária, trabalhista, médica, odontológica e de engenharia. Atuação nacional.">
-  <meta name="keywords" content="perito judicial, assistência técnica, perícia bancária, perícia trabalhista, perícia médica, perícia odontológica, cálculos judiciais, liquidação de sentença, VerumLex, Brasília">
-  <meta name="author" content="VerumLex">
-  <meta name="robots" content="index, follow">
-  <!-- Open Graph -->
-  <meta property="og:title" content="VerumLex — Perícia Judicial Multidisciplinar">
-  <meta property="og:description" content="Laudos que resistem ao contraditório. Assistência técnica e perícia judicial para advogados e partes, com atuação nacional.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://verumlex.com.br">
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css?v=4.1">
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerumLex - Perícia Judicial e Assistência Técnica</title>
+    <meta name="description" content="Serviços de Perícia Judicial e Assistência Técnica Trabalhista, Bancária e Cível. Laudos técnicos com rigor científico e imparcialidade. Atendemos Advogados e Judiciário.">
+    <meta name="keywords" content="Perito Judicial, Assistente Técnico, Cálculos Trabalhistas, Laudo Bancário, Perícia Financeira, VerumLex, Liquidação de Sentença">
+    <meta name="author" content="VerumLex">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.2">
+    <!-- Ícone -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Ajustes inline rápidos para a nova estrutura (depois movemos para o CSS) */
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            margin-left: 10px;
+        }
+        .btn-secondary:hover {
+            background-color: #d4af37;
+            color: #000;
+        }
+        .services-grid, .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-card, .case-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover, .case-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+        .service-card h3, .case-card h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+        .case-card p {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        .differentials {
+            background-color: #0a0a0a;
+            padding: 5rem 0;
+        }
+        .profile-section {
+            background-color: #0f0f0f;
+            padding: 5rem 0;
+            border-bottom: 1px solid #222;
+        }
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        .profile-text {
+            flex: 2;
+        }
+        .profile-image {
+            flex: 1;
+            text-align: center;
+            min-width: 250px;
+        }
+        .profile-image img {
+            border-radius: 50%;
+            border: 3px solid #d4af37;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .differential-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .differential-item {
+            text-align: center;
+        }
+        .differential-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .software-section {
+            background-color: #111;
+            border-top: 1px solid #222;
+        }
+    </style>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Modal Styles -->
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #111;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #d4af37;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+        }
+
+        .close-modal:hover {
+            color: #d4af37;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .form-title {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .form-subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Scroll progress indicator -->
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- ════ NAVBAR ════ -->
-<nav class="navbar" id="navbar">
-  <div class="container nav-inner">
-    <a href="#home" class="nav-logo">
-      <img src="assets/img/logo.svg" alt="VerumLex">
-      <span class="nav-logo-text">VERUMLEX</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#quem-somos">Quem Somos</a></li>
-      <li><a href="#como-funciona">Como Funciona</a></li>
-      <li><a href="#artigos">Artigos</a></li>
-    </ul>
-    <a href="#contato" class="btn btn-gold nav-cta">Falar com o Perito</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-mobile-menu" id="navMobile">
-    <a href="#servicos" class="nav-m-link">Serviços</a>
-    <a href="#quem-somos" class="nav-m-link">Quem Somos</a>
-    <a href="#como-funciona" class="nav-m-link">Como Funciona</a>
-    <a href="#artigos" class="nav-m-link">Artigos</a>
-    <a href="#contato" class="nav-m-link" style="color:var(--gold)">Falar com o Perito</a>
-  </div>
-</nav>
-
-<!-- ════ HERO ════ -->
-<section id="home" class="hero">
-  <div class="hero-bg-glow"></div>
-  <div class="hero-bg-glow-2"></div>
-  <div class="container hero-inner">
-
-    <div class="hero-text-block">
-      <div class="hero-eyebrow">Perícia Judicial Multidisciplinar</div>
-      <h1 class="hero-title">
-        Laudos que resistem<br>ao <span class="gold">contraditório.</span>
-      </h1>
-      <p class="hero-text">
-        Da formulação de quesitos ao laudo definitivo — assessoria técnica para advogados e partes em ações que envolvem questões financeiras, bancárias, trabalhistas, médicas e de engenharia.
-      </p>
-      <div class="hero-buttons">
-        <a href="#contato" class="btn btn-gold">
-          <i class="fa-solid fa-envelope"></i> Solicitar Análise
-        </a>
-        <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number">35+</div>
-          <div class="stat-label">Anos de mercado</div>
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="container">
+            <div class="logo" style="display: flex; flex-direction: column;">
+                <img src="assets/img/logo.svg" alt="VerumLex" style="height: 100px; width: auto;">
+            </div>
+            <nav class="nav">
+                <a href="#institutional">A VerumLex</a>
+                <a href="#cases">Casos Reais</a>
+                <a href="#software">Software</a>
+                <a href="#" onclick="openModal(); return false;">Contato</a>
+            </nav>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">9</div>
-          <div class="stat-label">Especialidades</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Ciência aplicada<br>à verdade dos fatos</h1>
+            <p class="hero-subtitle">Precisão técnica para decisões seguras.</p>
+            <p class="hero-text" style="max-width: 800px; margin: 0 auto 2rem auto;">
+                Transformamos dados, contratos e registros financeiros em números claros, confiáveis e juridicamente sustentáveis. 
+                Atuamos com rigor técnico para garantir que cada valor reflita a realidade dos fatos — no processo, na negociação ou na prevenção de riscos.
+            </p>
+            <div class="hero-buttons">
+                <button onclick="openModal()" class="btn btn-primary" style="cursor: pointer; border: none; font-size: 1.1rem;">Falar com um Perito</button>
+            </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">Nacional</div>
-          <div class="stat-label">Assistência Técnica</div>
+    </section>
+
+    <style>
+        /* Tabs Styling */
+        .tabs-container {
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #333;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #888;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .tab-btn:hover {
+            color: #d4af37;
+        }
+        .tab-btn.active {
+            color: #d4af37;
+        }
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #d4af37;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <!-- Institutional Section with Tabs -->
+    <section id="institutional" class="profile-section">
+        <div class="container">
+            <h2 class="section-title">Conheça a VerumLex</h2>
+            
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="openTab(event, 'tab-process')">Metodologia & Processo</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-technical')">Corpo Técnico</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-differentials')">Diferenciais</button>
+                </div>
+
+                <!-- Tab 1: Metodologia (Processo) -->
+                <div id="tab-process" class="tab-content active">
+                     <p style="text-align: center; color: #aaa; max-width: 800px; margin: 0 auto 3rem auto; line-height: 1.6;">
+                        A perícia judicial traduz a complexidade técnica para a realidade jurídica. Atuamos com rigor desde a fase de instrução até a liquidação de sentença.
+                    </p>
+                    <div class="process-steps" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 3rem;">
+                        <div class="process-step" style="flex: 1; min-width: 250px; text-align: center; background: #1a1a1a; padding: 2rem; border-radius: 8px; border: 1px solid #333;">
+                            <i class="fas fa-gavel" style="font-size: 2rem; color: #d4af37; margin-bottom: 1rem;"></i>
+                            <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">1. Nomeação & Instrução</h3>
+                            <p style="color: #888; font-size: 0.9rem;">Elucidação de fatos na fase probatória e laudos para convicção do juízo.</p>
+                        </div>
+                        <div class="process-step" style="flex: 1; min-width: 250px; text-align: center; background: #1a1a1a; padding: 2rem; border-radius: 8px; border: 1px solid #333;">
+                            <i class="fas fa-calculator" style="font-size: 2rem; color: #d4af37; margin-bottom: 1rem;"></i>
+                            <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">2. Liquidação de Sentença</h3>
+                            <p style="color: #888; font-size: 0.9rem;">Transformação do título executivo em valor líquido com juros e correção.</p>
+                        </div>
+                        <div class="process-step" style="flex: 1; min-width: 250px; text-align: center; background: #1a1a1a; padding: 2rem; border-radius: 8px; border: 1px solid #333;">
+                            <i class="fas fa-check-double" style="font-size: 2rem; color: #d4af37; margin-bottom: 1rem;"></i>
+                            <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">3. Esclarecimentos</h3>
+                            <p style="color: #888; font-size: 0.9rem;">Suporte técnico ao contraditório e resposta a quesitos.</p>
+                        </div>
+                    </div>
+                    <!-- CTA Compacto -->
+                    <div style="text-align: center; margin-top: 2rem;">
+                         <p style="color: #d4af37; font-style: italic; margin-bottom: 1rem;">"Ciência aplicada à verdade dos fatos"</p>
+                         <button onclick="openModal()" class="btn btn-primary" style="font-size: 0.9rem;">Solicitar Proposta</button>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Corpo Técnico -->
+                <div id="tab-technical" class="tab-content">
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <i class="fas fa-user-tie" style="font-size: 120px; color: #333; border: 3px solid #d4af37; border-radius: 50%; padding: 20px; background: #000;"></i>
+                        </div>
+                        <div class="profile-text">
+                            <h3 style="color: #fff; margin-bottom: 0.5rem;">Vicelmo Junior</h3>
+                            <p style="color: #d4af37; margin-bottom: 1rem;">Perito Judicial & Assistente Técnico</p>
+                            
+                            <p style="color: #ccc; margin-bottom: 1.5rem; line-height: 1.6;">
+                                "A exatidão dos números a serviço da justiça."
+                            </p>
+
+                            <p style="color: #ccc; margin-bottom: 1.5rem; line-height: 1.6;">
+                                Especialista com base sólida em <strong>Ciências Exatas (Física/Matemática)</strong>, aplicando o rigor analítico e a lógica científica à Perícia Financeira e Trabalhista. 
+                                Diferencia-se pelo desenvolvimento de tecnologia própria (Ecossistema VerumLex) para automação e validação de cálculos complexos.
+                            </p>
+
+                            <ul style="list-style: none; padding: 0; color: #888; margin-bottom: 2rem;">
+                                <li style="margin-bottom: 0.5rem;"><i class="fas fa-graduation-cap" style="color: #d4af37; margin-right: 10px;"></i>Graduado em Física (UFAM) e Matemática</li>
+                                <li style="margin-bottom: 0.5rem;"><i class="fas fa-certificate" style="color: #d4af37; margin-right: 10px;"></i>Pós-graduado em Perícia Civil e Trabalhista</li>
+                                <li style="margin-bottom: 0.5rem;"><i class="fas fa-calculator" style="color: #d4af37; margin-right: 10px;"></i>Especialista em Cálculos Judiciais (Trabalhista/Bancário)</li>
+                                <li style="margin-bottom: 0.5rem;"><i class="fas fa-code" style="color: #d4af37; margin-right: 10px;"></i>Desenvolvedor do Software VerumLex</li>
+                            </ul>
+                            
+                            <!-- Placeholder for Future Expansion -->
+                            <div style="border-top: 1px solid #333; padding-top: 1.5rem; margin-top: 2rem;">
+                                <h4 style="color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;">Expansão & Parcerias</h4>
+                                <p style="color: #555; font-size: 0.85rem;">
+                                    A VerumLex mantém processo contínuo de seleção e qualificação para ampliar seu corpo de peritos associados.
+                                    <br><span style="font-style: italic;">(Em breve: novos especialistas associados)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Diferenciais -->
+                <div id="tab-differentials" class="tab-content">
+                    <p style="text-align: center; color: #ccc; max-width: 800px; margin: 0 auto 3rem auto; line-height: 1.6; font-size: 1.05rem;">
+                        Na VerumLex, não apenas calculamos números; <strong>construímos provas técnicas</strong>. Nossa abordagem une o rigor analítico das Ciências Exatas à sensibilidade jurídica necessária para o sucesso processual.
+                    </p>
+                    <div class="differential-grid">
+                        <div class="differential-item">
+                            <span class="differential-icon">💻</span>
+                            <h3 style="color: #d4af37; margin-bottom: 0.5rem;">Tecnologia Própria</h3>
+                            <p style="font-size: 0.9rem; color: #aaa; line-height: 1.5;">
+                                Utilizamos o <strong>Ecossistema VerumLex</strong>, softwares exclusivos desenvolvidos internamente para automação e validação de grandes volumes de dados, eliminando erros manuais.
+                            </p>
+                        </div>
+                        <div class="differential-item">
+                            <span class="differential-icon">⚖️</span>
+                            <h3 style="color: #d4af37; margin-bottom: 0.5rem;">Fundamentação Robusta</h3>
+                            <p style="font-size: 0.9rem; color: #aaa; line-height: 1.5;">
+                                Cada linha de cálculo é rastreável e justificada. Nossos laudos citam a legislação, jurisprudência e normas técnicas (ABNT/CPC) que embasam o resultado.
+                            </p>
+                        </div>
+                        <div class="differential-item">
+                            <span class="differential-icon">🔍</span>
+                            <h3 style="color: #d4af37; margin-bottom: 0.5rem;">Imparcialidade Científica</h3>
+                            <p style="font-size: 0.9rem; color: #aaa; line-height: 1.5;">
+                                "A exatidão dos números a serviço da justiça." Atuamos com independência técnica, garantindo que o laudo reflita a verdade dos fatos, seja para o Autor, Réu ou Juízo.
+                            </p>
+                        </div>
+                        <div class="differential-item">
+                            <span class="differential-icon">💡</span>
+                            <h3 style="color: #d4af37; margin-bottom: 0.5rem;">Clareza Didática</h3>
+                            <p style="font-size: 0.9rem; color: #aaa; line-height: 1.5;">
+                                Traduzimos a complexidade financeira para a linguagem jurídica. Gráficos, tabelas explicativas e resumos executivos facilitam a compreensão dos magistrados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Script for Tabs -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+    <!-- Cases/Portfolio Section -->
+    <section id="cases" class="features" style="background-color: #151515;">
+        <div class="container">
+            <h2 class="section-title">Casos em Destaque</h2>
+            <p style="text-align: center; color: #aaa; margin-bottom: 2rem;">Situações reais onde nossa intervenção técnica foi decisiva.</p>
+            <div class="cases-grid">
+                <!-- Case 1 -->
+                <div class="case-card">
+                    <h3><i class="fas fa-balance-scale" style="margin-right: 10px;"></i>Liquidação Bancária (Horas Extras)</h3>
+                    <p><strong>Desafio:</strong> Liquidação complexa de horas extras em processo trabalhista de grande porte, com múltiplos reflexos e adequação à decisão do STF (ADC 58).</p>
+                    <hr style="border-color: #333; margin: 10px 0;">
+                    <p><strong>Resultado:</strong> Cálculos homologados em patamar multimilionário, com honorários periciais aprovados integralmente pela complexidade técnica.</p>
+                </div>
+                <!-- Case 2 -->
+                <div class="case-card">
+                    <h3><i class="fas fa-piggy-bank" style="margin-right: 10px;"></i>Recuperação Previdenciária</h3>
+                    <p><strong>Desafio:</strong> Identificar divergências na paridade contributiva (1:1) entre cotas patronais e laborais em fundo de previdência privada fechado.</p>
+                    <hr style="border-color: #333; margin: 10px 0;">
+                    <p><strong>Resultado:</strong> Identificação de diferenças significativas a favor de cada parte, fundamentada em análise atuarial e contábil rigorosa.</p>
+                </div>
+                <!-- Case 3 -->
+                <div class="case-card">
+                    <h3><i class="fas fa-file-invoice-dollar" style="margin-right: 10px;"></i>Revisão Civil (Lei 14.905/24)</h3>
+                    <p><strong>Desafio:</strong> Adequação de contratos bancários às novas regras do CMN 5.171 e Lei 14.905 (Juros Legais e Correção Monetária).</p>
+                    <hr style="border-color: #333; margin: 10px 0;">
+                    <p><strong>Resultado:</strong> Aplicação precisa da metodologia "Taxa Legal" (Selic/IPCA), garantindo segurança jurídica e valores auditáveis em execuções cíveis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section (Antiga Download) -->
+    <section id="software" class="download software-section">
+        <div class="container">
+            <h2 class="section-title">Nossa Tecnologia</h2>
+            <p style="margin-bottom: 2rem;">
+                Desenvolvemos o <strong>VerumLex Software</strong>, uma ferramenta própria para automação e extração de dados jurídicos. 
+                Utilizamos tecnologia de ponta para garantir a precisão em grandes volumes de dados.
+            </p>
+            <div class="download-box">
+                <p class="version-info" style="font-size: 0.9rem; color: #666;">Disponível para Windows, outras plataformas consulte-nos.</p>
+                <a href="update/VerumLex.exe" class="btn btn-gold" download>Baixar Versão de Avaliação (v2.05)</a>
+                <p class="requirements">Teste gratuito por 15 dias</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div style="margin-bottom: 1rem; text-align: center;">
+                <h3 style="color: #fff; margin-bottom: 0.5rem;">Precisa de um cálculo técnico?</h3>
+                <p style="margin-bottom: 0.5rem;">Entre em contato para solicitar uma análise do seu caso.</p>
+                <a href="mailto:contato@verumlex.com.br" style="color: #d4af37; font-size: 1.2rem; text-decoration: none; font-weight: bold;">contato@verumlex.com.br</a>
+            </div>
+            <hr style="border-color: #333; margin: 1.5rem 0;">
+            <p>&copy; 2026 VerumLex - Perícia e Assessoria. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 class="form-title">Solicitar Análise</h2>
+            <p class="form-subtitle">Preencha os dados abaixo. Nossa equipe técnica retornará o contato.</p>
+            
+            <form action="https://formsubmit.co/contato@verumlex.com.br" method="POST">
+                <!-- Configurações ocultas do Formsubmit -->
+                <input type="hidden" name="_subject" value="Nova Solicitação de Análise - Site VerumLex">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://verumlex.com.br">
+
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required placeholder="Seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone / WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(XX) 9XXXX-XXXX">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Como podemos ajudar?</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente sua necessidade..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Solicitação</button>
+            </form>
+        </div>
     </div>
 
-    <div class="hero-panel">
-      <div class="hero-panel-title">Área de Atuação</div>
-      <div class="coverage-item">
-        <i class="fa-solid fa-scale-balanced"></i>
-        <div>
-          <span class="cov-label">Assistência Técnica</span>
-          <span class="cov-sub">Atuação nacional — presencial ou remota</span>
-        </div>
-      </div>
-      <div class="coverage-item">
-        <i class="fa-solid fa-gavel"></i>
-        <div>
-          <span class="cov-label">Perícia Judicial</span>
-          <span class="cov-sub">TJGO · TJDFT · Justiça Federal</span>
-        </div>
-      </div>
-      <div class="coverage-item">
-        <i class="fa-solid fa-users"></i>
-        <div>
-          <span class="cov-label">Rede Pericial Multidisciplinar</span>
-          <span class="cov-sub">Especialistas acionados conforme a demanda</span>
-        </div>
-      </div>
-      <div class="coverage-item">
-        <i class="fa-solid fa-clock"></i>
-        <div>
-          <span class="cov-label">Resposta em até 24h úteis</span>
-          <span class="cov-sub">Para análise preliminar do caso</span>
-        </div>
-      </div>
-      <a href="mailto:contato@verumlex.com.br" class="hero-email">
-        <i class="fa-solid fa-envelope"></i>
-        contato@verumlex.com.br
-      </a>
-    </div>
+    <script>
+        function openModal() {
+            const modal = document.getElementById('contactModal');
+            modal.style.display = 'flex'; // Garante display flex antes da opacidade
+            // Pequeno delay para permitir a transição CSS
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Impede scroll da página de fundo
+        }
 
-  </div>
-</section>
+        function closeModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Espera a transição terminar
+            document.body.style.overflow = 'auto'; // Libera scroll
+        }
 
-<!-- ════ SERVICES ════ -->
-<section id="servicos" class="services">
-  <div class="container">
-    <div class="services-header">
-      <span class="section-label">O que fazemos</span>
-      <h2 class="section-title">Serviços Periciais</h2>
-      <p class="section-sub">Atuação técnica em sete frentes, com especialistas qualificados em cada área.</p>
-    </div>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-landmark"></i></div>
-        <h3>Perícia Financeira e Bancária</h3>
-        <p>Revisão de contratos de crédito, apuração de anatocismo, Tabela Price, capitalização indevida, spread abusivo e indébito em operações bancárias.</p>
-        <span class="service-tag">Perícia Judicial · Assistência Técnica</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-        <h3>Perícia Trabalhista</h3>
-        <p>Liquidação de sentença, cálculo de horas extras e reflexos, adicional noturno, FGTS, PLR e adequação às orientações do STF (ADC 58/Tema 905).</p>
-        <span class="service-tag">Perícia Judicial · Liquidação</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-user-tie"></i></div>
-        <h3>Assistência Técnica ao Advogado</h3>
-        <p>Formulação de quesitos periciais estratégicos, impugnação técnica de laudos, pareceres contrários e suporte à sustentação oral em audiências.</p>
-        <span class="service-tag">Atuação Nacional</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>Perícia Médica</h3>
-        <p>Avaliação de erro médico, nexo causal, danos corporais, capacidade laborativa e análise de prontuários em ações de responsabilidade civil da saúde.</p>
-        <span class="service-tag">Especialistas Associados</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
-        <h3>Perícia Odontológica</h3>
-        <p>Responsabilidade civil do cirurgião-dentista, análise de protocolos em implantodontia, harmonização facial e documentação clínica inadequada.</p>
-        <span class="service-tag">Especialistas Associados</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-        <h3>Perícia de Engenharia</h3>
-        <p>Avaliações imobiliárias, patologias construtivas, vícios ocultos, divergências de projeto e vistoria técnica em obras e instalações elétricas.</p>
-        <span class="service-tag">Especialistas Associados</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-gavel"></i></div>
-        <h3>Administração Judicial</h3>
-        <p>Atuação como administrador nomeado pelo juízo para gestão de penhora de faturamento (art. 866 CPC), relatórios periódicos e prestação de contas.</p>
-        <span class="service-tag">Execução Judicial</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
-        <h3>Perícia Psicológica</h3>
-        <p>Avaliação de dano moral qualificado, nexo causal em transtornos decorrentes de relações de trabalho, assédio e responsabilidade civil.</p>
-        <span class="service-tag">Especialistas Associados</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <h3>Auditoria de Segurança da Informação</h3>
-        <p>Perícias e auditorias em incidentes digitais, vazamento de dados, adequação à LGPD e gestão de crises — com base na ISO 27001.</p>
-        <span class="service-tag">Auditor Líder ISO 27001</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════ ABOUT ════ -->
-<section id="quem-somos" class="about">
-  <div class="container about-grid">
-
-    <div class="about-text">
-      <span class="section-label">Quem somos</span>
-      <h2 class="section-title">35 anos de mercado.<br>Metodologia que comprova.</h2>
-      <div class="about-body">
-        <p>
-          A <strong>VerumLex</strong> é coordenada por <strong>Cesar Saggioro</strong>, Administrador de Empresas, MBA Marketing pela Fundação Dom Cabral e Auditor Líder ISO 27001 certificado pelo <em>British Standards Institution</em> — o organismo britânico fundador da própria norma ISO, referência mundial em certificação de sistemas de gestão. Perito judicial cadastrado no TJGO e no TJDFT, com MBA em Perícia Judicial e Extrajudicial em andamento (Faculdade de São Marcos).
-        </p>
-        <p>
-          Sua trajetória profissional inclui três décadas no Banco do Brasil — passando pela Diretoria de Segurança Institucional, Agronegócios e Marketing — além de atuação no <strong>Gabinete de Segurança Institucional da Presidência da República</strong>. Essa base institucional de alto padrão fundamenta a abordagem analítica e a capacidade de sistematização que caracterizam os laudos VerumLex.
-        </p>
-        <p>
-          Na prática de cada caso, Cesar atua diretamente nas áreas financeira, bancária e trabalhista, e coordena a rede de especialistas associados para as demais especialidades — acionados conforme a natureza técnica do processo.
-        </p>
-      </div>
-      <div class="about-highlights">
-        <div class="hi-item">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <span>Administrador de Empresas · MBA Marketing — Fundação Dom Cabral (concluído)</span>
-        </div>
-        <div class="hi-item">
-          <i class="fa-solid fa-certificate"></i>
-          <span>Auditor Líder ISO 27001 — BSI (British Standards Institution, organismo fundador da norma ISO)</span>
-        </div>
-        <div class="hi-item">
-          <i class="fa-solid fa-building-columns"></i>
-          <span>Perito cadastrado: TJGO · TJDFT</span>
-        </div>
-        <div class="hi-item">
-          <i class="fa-solid fa-laptop-code"></i>
-          <span>Desenvolvedor do sistema próprio VerumLex — automação e validação de cálculos periciais</span>
-        </div>
-        <div class="hi-item">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <span>MBA Perícia Judicial e Extrajudicial — Faculdade de São Marcos (em andamento)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-right">
-      <span class="section-label">Rede pericial</span>
-      <p class="spec-header" style="margin-top:16px">Especialistas associados — acionados por demanda</p>
-      <div class="specialists-grid">
-        <div class="spec-item">
-          <i class="fa-solid fa-user-doctor"></i>
-          <span>Médicos</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-tooth"></i>
-          <span>Dentistas</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-brain"></i>
-          <span>Psicólogos</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-building"></i>
-          <span>Eng. Civil</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-bolt"></i>
-          <span>Eng. Elétrico</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-calculator"></i>
-          <span>Contadores</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-scale-balanced"></i>
-          <span>Advogados</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-x-ray"></i>
-          <span>Radiologistas</span>
-        </div>
-        <div class="spec-item">
-          <i class="fa-solid fa-briefcase"></i>
-          <span>Administradores</span>
-        </div>
-      </div>
-      <div class="about-note">
-        A atuação multidisciplinar permite cobrir o espectro completo de demandas judiciais — sem terceirizar a coordenação. O perito responsável acompanha cada caso do início ao laudo final.
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════ HOW IT WORKS ════ -->
-<section id="como-funciona" class="process">
-  <div class="container">
-    <div class="process-header">
-      <span class="section-label">Processo de trabalho</span>
-      <h2 class="section-title">Como funciona</h2>
-      <p class="section-sub" style="max-width:540px;margin:12px auto 0">Três etapas simples. Do primeiro contato ao laudo entregue.</p>
-    </div>
-    <div class="process-steps">
-      <div class="process-connector"></div>
-      <div class="process-step">
-        <div class="step-num">01</div>
-        <h3>Consulta Inicial</h3>
-        <p>Envie o resumo do caso por e-mail. Analisamos a viabilidade técnica e respondemos em até 24h úteis com uma avaliação preliminar.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">02</div>
-        <h3>Análise e Proposta</h3>
-        <p>Definimos a especialidade, metodologia aplicável, prazo de entrega e emitimos proposta técnica detalhada para sua aprovação.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">03</div>
-        <h3>Laudo e Entrega</h3>
-        <p>Entregamos o laudo pericial ou parecer técnico com rastreabilidade completa dos cálculos, fundamentos legais e resposta integral aos quesitos.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════ ARTICLES ════ -->
-<section id="artigos" class="articles">
-  <div class="container">
-    <div class="articles-header">
-      <div>
-        <span class="section-label">Conhecimento</span>
-        <h2 class="section-title">Artigos Técnicos</h2>
-        <p class="section-sub" style="margin-top:8px">Análises sobre metodologias periciais, legislação e jurisprudência.</p>
-      </div>
-      <a href="artigos/" class="articles-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    <div class="articles-grid">
-
-      <a href="artigos/penhora-faturamento-stj.html" class="article-card">
-        <div class="article-body">
-          <span class="article-tag">Execução · STJ</span>
-          <h3>STJ e a Penhora de Faturamento: como definir o percentual justo</h3>
-          <p>O Superior Tribunal de Justiça consolidou critérios objetivos para fixação do percentual na penhora de faturamento. Entenda a metodologia e o papel do administrador judicial.</p>
-        </div>
-        <div class="article-footer">
-          <span class="article-date"><i class="fa-regular fa-calendar"></i> Junho 2026</span>
-          <span class="article-read">Ler artigo <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>
-
-      <a href="artigos/lei-14905-2024-juros.html" class="article-card">
-        <div class="article-body">
-          <span class="article-tag">Legislação · Contratos</span>
-          <h3>Lei 14.905/2024: novas regras de juros e reflexos nos cálculos periciais</h3>
-          <p>A reforma dos juros legais alterou a base de correção monetária nos contratos sem taxa expressamente fixada. Veja o impacto na liquidação de sentença.</p>
-        </div>
-        <div class="article-footer">
-          <span class="article-date"><i class="fa-regular fa-calendar"></i> Junho 2026</span>
-          <span class="article-read">Ler artigo <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>
-
-      <a href="artigos/quesitos-periciais-guia.html" class="article-card">
-        <div class="article-body">
-          <span class="article-tag">Prática · Advogados</span>
-          <h3>Como formular quesitos periciais eficazes — guia para advogados</h3>
-          <p>Quesitos mal formulados produzem laudos que não respondem à questão central do processo. Um guia prático para extrair o máximo da prova técnica.</p>
-        </div>
-        <div class="article-footer">
-          <span class="article-date"><i class="fa-regular fa-calendar"></i> Em breve</span>
-          <span class="article-read" style="opacity:0.5">Em publicação</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════ CONTACT ════ -->
-<section id="contato" class="contact">
-  <div class="container contact-grid">
-
-    <div class="contact-info">
-      <span class="section-label">Contato</span>
-      <h2 class="section-title">Vamos analisar<br>o seu caso.</h2>
-      <p class="section-sub">
-        Envie um resumo da demanda. Respondemos em até 24 horas úteis com uma avaliação inicial — sem compromisso.
-      </p>
-      <div class="contact-detail">
-        <i class="fa-solid fa-envelope"></i>
-        <a href="mailto:contato@verumlex.com.br">contato@verumlex.com.br</a>
-      </div>
-      <div class="contact-detail">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>Brasília — DF</span>
-      </div>
-      <div class="contact-detail">
-        <i class="fa-solid fa-globe"></i>
-        <span>Assistência Técnica — Atuação Nacional</span>
-      </div>
-      <div class="contact-notice">
-        <strong style="color:var(--text)">Para advogados:</strong> informe o número do processo, a vara e o tipo de quesitação desejada. Isso agiliza a análise de viabilidade técnica.
-      </div>
-    </div>
-
-    <div class="contact-form">
-      <form action="https://formsubmit.co/contato@verumlex.com.br" method="POST">
-        <input type="hidden" name="_subject" value="Nova Solicitação — Site VerumLex">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://verumlex.com.br">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
-          </div>
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required placeholder="seu@email.com">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="perfil">Você é</label>
-            <select id="perfil" name="perfil">
-              <option value="">Selecione...</option>
-              <option value="Advogado(a)">Advogado(a)</option>
-              <option value="Parte no processo">Parte no processo</option>
-              <option value="Escritório de advocacia">Escritório de advocacia</option>
-              <option value="Empresa">Empresa</option>
-              <option value="Outro">Outro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="area">Área de interesse</label>
-            <select id="area" name="area">
-              <option value="">Selecione...</option>
-              <option value="Perícia Financeira / Bancária">Financeira / Bancária</option>
-              <option value="Perícia Trabalhista">Trabalhista</option>
-              <option value="Assistência Técnica">Assistência Técnica</option>
-              <option value="Perícia Médica">Médica</option>
-              <option value="Perícia Odontológica">Odontológica</option>
-              <option value="Perícia de Engenharia">Engenharia</option>
-              <option value="Administração Judicial">Administração Judicial</option>
-              <option value="Segurança da Informação">Segurança da Informação</option>
-              <option value="Não sei / Outro">Não sei / Outro</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="mensagem">Resumo do caso</label>
-          <textarea id="mensagem" name="mensagem" required placeholder="Descreva brevemente a situação: tipo de ação, valor em discussão, questão técnica central e o que você precisa..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-gold btn-submit">
-          <i class="fa-solid fa-paper-plane"></i> Enviar Solicitação
-        </button>
-      </form>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════ FOOTER ════ -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-
-      <div>
-        <div class="footer-logo">
-          <img src="assets/img/logo.svg" alt="VerumLex">
-          <span class="footer-logo-text">VERUMLEX</span>
-        </div>
-        <p class="footer-brand-text">
-          Ciência aplicada à verdade dos fatos. Assessoria pericial multidisciplinar para advogados e partes — com rigor técnico e fundamentação irrefutável.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Serviços</h4>
-        <ul>
-          <li><a href="#servicos">Perícia Financeira e Bancária</a></li>
-          <li><a href="#servicos">Perícia Trabalhista</a></li>
-          <li><a href="#servicos">Assistência Técnica</a></li>
-          <li><a href="#servicos">Perícia Médica</a></li>
-          <li><a href="#servicos">Perícia Odontológica</a></li>
-          <li><a href="#servicos">Administração Judicial</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Institucional</h4>
-        <ul>
-          <li><a href="#quem-somos">Quem Somos</a></li>
-          <li><a href="#como-funciona">Como Funciona</a></li>
-          <li><a href="#artigos">Artigos</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="mailto:contato@verumlex.com.br">contato@verumlex.com.br</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 VerumLex. Todos os direitos reservados.</p>
-      <p class="footer-slogan">Onde a dúvida termina e a certeza começa.</p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Scroll progress bar
-  window.addEventListener('scroll', function() {
-    var p = document.getElementById('scrollProgress');
-    var h = document.documentElement;
-    var pct = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-    if (p) p.style.width = pct + '%';
-  });
-
-  // Navbar compact on scroll
-  window.addEventListener('scroll', function() {
-    var nav = document.getElementById('navbar');
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Mobile menu toggle
-  var toggle = document.getElementById('navToggle');
-  var menu   = document.getElementById('navMobile');
-  if (toggle && menu) {
-    toggle.addEventListener('click', function() {
-      toggle.classList.toggle('open');
-      menu.classList.toggle('open');
-    });
-    menu.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        toggle.classList.remove('open');
-        menu.classList.remove('open');
-      });
-    });
-  }
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
+        // Fechar ao clicar fora
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
